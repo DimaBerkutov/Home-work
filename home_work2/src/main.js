@@ -95,8 +95,12 @@ let frameworks = [4.7, 'Angular', '4Angular', 'React/Redux'];
 //     `${frameworks[frameworks.length - 1]}`;
 
 
-let task5 =
+let task5_1 =
     'google \ released ' + 'new version \ ' + frameworks[1] + Math.floor(frameworks[0]) +
     '\  But real speed is ' + `${frameworks[frameworks.length - 1]}`;
+var value1 = frameworks[1] + Math.floor(frameworks[0]);
+var value2 = frameworks[frameworks.length - 1];
+let task5_2=`google released new version ${value1} But real speed is ${value2}`;
 
-console.log('task 5', task5);
+console.log('task 5 Method 2', task5_1);
+console.log('task 5 Method 2', task5_2);
