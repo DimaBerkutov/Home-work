@@ -27,6 +27,11 @@ var sentence_example2 = '"' + howMuch + ' ' +  sentenceMass[0] + ' ' + sentenceM
 
 console.log('task 1, Method 2', sentence_example2);
 
+// 3bq способ,
+var sentence_example3 = `" ${howMuch} ${sentenceMass[0]} ${sentenceMass[1]} ${sentenceMass[2]} ${sentenceMass[3]} ${project} ${sentenceMass.slice(-1)} ${numbers[1]}, ${numbers[0]}, ${team}"`;
+
+console.log('task 1, Method 3', sentence_example3);
+
 /*
  2. Составьте предложение из представленного массива
  и выведите предложение в консоль;
