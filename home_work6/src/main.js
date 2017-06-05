@@ -496,7 +496,7 @@ console.log('task4', createHashTags(listOfCompanys));
 
 function uniqueElements(arr) {
  //ES2015
-    let result = new Set(arr)
+    let result =[... new Set(arr)];
     return result;
 }
 let notUniqArray = [1, 1, 2, 2, 2, 5, 10, 25, 30, 5, 1, 0, 22, 3, 10, 3];
