@@ -30,8 +30,8 @@ z(x);
  *
  * */
 
-let $ = function() {
-    return createBODY;
+let $ = function(teg) {
+    return `< $(teg) > < / $(teg) >`;
 };
 let createBODY = $('body');
 let createDIV = $('div');
