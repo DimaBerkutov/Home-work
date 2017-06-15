@@ -127,13 +127,14 @@ document.write(helloList);
          $1.tegsString1 = '';
          $1.tegsString2 = '';
          console.log('render');
+         return this
      }
-     return this
  };
 function  notMetodFunc(teg, text){
     this.tegsString1 = `${this.tegsString1}<${teg}>`;
     this.tegsString2 = `</${teg}>${this.tegsString2}`;
     console.log(text === undefined ? this.tegsString1 + this.tegsString2 : this.tegsString1 + text + this.tegsString2);
+    return this
 }
 console.log('SUPER:');
  var helloList = $1
