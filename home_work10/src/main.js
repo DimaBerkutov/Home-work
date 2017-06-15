@@ -91,6 +91,7 @@ var ezjQuery2 = {
         this.tegsString1 = '';
         this.tegsString2 = '';
         console.log('render', this.tegsString1, this.tegsString2);
+        return this
     }
 };
 console.log('task 3:');
