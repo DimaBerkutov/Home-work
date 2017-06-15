@@ -81,13 +81,13 @@ ezjQuery.add('h1'); //<body></body><div></div><h1></h1>
 var ezjQuery2 = {
     tegsString1: '',
     tegsString2: '',
-    add: function(teg, text){
+    add (teg, text){
         this.tegsString1 = `${this.tegsString1}<${teg}>`;
         this.tegsString2 = `</${teg}>${this.tegsString2}`;
         console.log(text === undefined ? this.tegsString1 + this.tegsString2 : this.tegsString1 + text + this.tegsString2);
         return this
     },
-    render: function() {
+    render () {
         this.tegsString1 = '';
         this.tegsString2 = '';
         console.log('render', this.tegsString1, this.tegsString2);
@@ -123,7 +123,7 @@ document.write(helloList);
      tegsString1: '',
      tegsString2: '',
      add: notMetodFunc,
-     render: () =>{
+     render (){
          $1.tegsString1 = '';
          $1.tegsString2 = '';
          console.log('render');
