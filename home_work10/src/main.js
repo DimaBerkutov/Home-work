@@ -85,6 +85,7 @@ var ezjQuery2 = {
         this.tegsString1 = `${this.tegsString1}<${teg}>`;
         this.tegsString2 = `</${teg}>${this.tegsString2}`;
         console.log(text === undefined ? this.tegsString1 + this.tegsString2 : this.tegsString1 + text + this.tegsString2);
+        return this
     },
     render: function() {
         this.tegsString1 = '';
@@ -95,17 +96,17 @@ var ezjQuery2 = {
 console.log('task 3:');
 var helloList = ezjQuery2
 helloList.add('body') // <body></body>
-helloList.add('div') // <body><div></div></body>
-helloList.add('ul') // <body><div><ul></ul></div></body>
-helloList.add('li', 'Hello') //<body><div><ul><li>Hello</li></ul></div></body>
-helloList.render();
+    .add('div') // <body><div></div></body>
+    .add('ul') // <body><div><ul></ul></div></body>
+    .add('li', 'Hello') //<body><div><ul><li>Hello</li></ul></div></body>
+    .render();
 console.log(helloList); // <body><div><ul><li>Hello</li></ul></div></body>
 //  Обратите внимание, что после вызова render создание строки началось сначала
 
 var bodyDiv = ezjQuery2
 helloList.add('body') //<body></body>
-helloList.add('div') //<body><div></div></body>
-helloList.render();
+    .add('div') //<body><div></div></body>
+    .render();
 console.log(bodyDiv); //<body><div></div></body>
 
 //Для выполнивших все задания
@@ -126,6 +127,7 @@ document.write(helloList);
          $1.tegsString2 = '';
          console.log('render');
      }
+     return this
  };
 function  notMetodFunc(teg, text){
     this.tegsString1 = `${this.tegsString1}<${teg}>`;
