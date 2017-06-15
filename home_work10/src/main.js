@@ -1,6 +1,7 @@
 /**
  * Created by Dima on 14.06.2017.
  */
+'use strict';
 /*
  *
  * Задача 0
@@ -10,17 +11,17 @@
  * В консоле не смотрите, сначала напишите, после проверьте себя
  *
  * */
-//Функция ничего не возвращает, поэтому z(x) ничего не вернет.
-// let y = 5;
-// let x = () => y;
-//
-// let z = t => {
-//     let y = 5;
-//     t();
-// };
-// console.log(y);
-//
-// z(x);
+console.log('task 0: Функция ничего не возвращает, поэтому z(x) ничего не вернет.');
+let y = 5;
+let x = () => y;
+
+let z = t => {
+    let y = 5;
+    t();
+};
+console.log(y);
+
+z(x);
 
 /*
  *
@@ -30,14 +31,14 @@
  *
  * */
 
-// let $ = function (teg) {
-//     // return "<" + teg + ">" + "<" + "/" + teg + ">"
-//     return `<${teg}></${teg}>`;
-// };
-// let createBODY = $('body');
-// let createDIV = $('div');
-// console.log('task 1 =', createBODY); // <body></body>
-// console.log('task 1 =', createDIV); // <div></div>
+let $ = function (teg) {
+    // return "<" + teg + ">" + "<" + "/" + teg + ">"
+    return `<${teg}></${teg}>`;
+};
+let createBODY = $('body');
+let createDIV = $('div');
+console.log('task 1:', createBODY); // <body></body>
+console.log('task 1:', createDIV); // <div></div>
 
 /*
  *
@@ -50,16 +51,17 @@
  *  Передаваемые аргументы должны быть только в виде строки
  * */
 
-// var ezjQuery = {
-//     tegsString: '',
-//     add: (teg) => {
-//     ezjQuery.tegsString += `<${teg}></${teg}>`;
-//         console.log(ezjQuery.tegsString);
-//     }
-// };
-// ezjQuery.add('body') //<body></body>
-// ezjQuery.add('div') //<body></body><div></div>
-// ezjQuery.add('h1'); //<body></body><div></div><h1></h1>
+var ezjQuery = {
+    tegsString: '',
+    add: (teg) => {
+    ezjQuery.tegsString += `<${teg}></${teg}>`;
+        console.log(ezjQuery.tegsString);
+    }
+};
+console.log('task 2:');
+ezjQuery.add('body') //<body></body>
+ezjQuery.add('div') //<body></body><div></div>
+ezjQuery.add('h1'); //<body></body><div></div><h1></h1>
 
 
 /*
@@ -76,72 +78,75 @@
  *
  */
 //
-// var ezjQuery2 = {
-//     tegsString1: '',
-//     tegsString2: '',
-//     add: (teg, text) => {
-//         ezjQuery2.tegsString1 = `${ezjQuery2.tegsString1}<${teg}>`;
-//         ezjQuery2.tegsString2 = `</${teg}>${ezjQuery2.tegsString2}`;
-//         console.log(text === undefined ? ezjQuery2.tegsString1 + ezjQuery2.tegsString2 : ezjQuery2.tegsString1 + text + ezjQuery2.tegsString2);
-//     },
-//     render: () =>{
-//         ezjQuery2.tegsString1 = '';
-//         ezjQuery2.tegsString2 = '';
-//         console.log('render');
-//     }
-// };
-// var helloList = ezjQuery2
-// helloList.add('body') // <body></body>
-// helloList.add('div') // <body><div></div></body>
-// helloList.add('ul') // <body><div><ul></ul></div></body>
-// helloList.add('li', 'Hello') //<body><div><ul><li>Hello</li></ul></div></body>
-// helloList.render();
-// console.log(helloList); // <body><div><ul><li>Hello</li></ul></div></body>
-// //  Обратите внимание, что после вызова render создание строки началось сначала
-//
-// var bodyDiv = ezjQuery2
-// helloList.add('body') //<body></body>
-// helloList.add('div') //<body><div></div></body>
-// helloList.render();
-// console.log(bodyDiv); //<body><div></div></body>
-//
-// //Для выполнивших все задания
-// // сделайте document.write(helloList) увидите результат :)
-//
-// document.write(helloList);
+var ezjQuery2 = {
+    tegsString1: '',
+    tegsString2: '',
+    add: function(teg, text){
+        this.tegsString1 = `${this.tegsString1}<${teg}>`;
+        this.tegsString2 = `</${teg}>${this.tegsString2}`;
+        console.log(text === undefined ? this.tegsString1 + this.tegsString2 : this.tegsString1 + text + this.tegsString2);
+    },
+    render: function() {
+        this.tegsString1 = '';
+        this.tegsString2 = '';
+        console.log('render', this.tegsString1, this.tegsString2);
+    }
+};
+console.log('task 3:');
+var helloList = ezjQuery2
+helloList.add('body') // <body></body>
+helloList.add('div') // <body><div></div></body>
+helloList.add('ul') // <body><div><ul></ul></div></body>
+helloList.add('li', 'Hello') //<body><div><ul><li>Hello</li></ul></div></body>
+helloList.render();
+console.log(helloList); // <body><div><ul><li>Hello</li></ul></div></body>
+//  Обратите внимание, что после вызова render создание строки началось сначала
+
+var bodyDiv = ezjQuery2
+helloList.add('body') //<body></body>
+helloList.add('div') //<body><div></div></body>
+helloList.render();
+console.log(bodyDiv); //<body><div></div></body>
+
+//Для выполнивших все задания
+// сделайте document.write(helloList) увидите результат :)
+
+document.write(helloList);
 
 // @SUPER
 //  Переименуйте объект ezjQuery в $.
 //  Создание перевого метода должено быть без метода
 
- var $ = {
+ var $1 = {
      tegsString1: '',
      tegsString2: '',
-     add: (teg, text) => {
-         $.tegsString1 = `${$.tegsString1}<${teg}>`;
-         $.tegsString2 = `</${teg}>${$.tegsString2}`;
-         console.log(text === undefined ? ezjQuery2.tegsString1 + ezjQuery2.tegsString2 : ezjQuery2.tegsString1 + text + ezjQuery2.tegsString2);
-     },
+     add: notMetodFunc,
      render: () =>{
-         $.tegsString1 = '';
-         $.tegsString2 = '';
+         $1.tegsString1 = '';
+         $1.tegsString2 = '';
          console.log('render');
      }
  };
-//  var helloList = ezjQuery2
-//  helloList.add('body') // <body></body>
-//  helloList.add('div') // <body><div></div></body>
-//  helloList.add('ul') // <body><div><ul></ul></div></body>
-//  helloList.add('li', 'Hello') //<body><div><ul><li>Hello</li></ul></div></body>
-//  helloList.render();
-//  console.log(helloList); // <body><div><ul><li>Hello</li></ul></div></body>
-// // Обратите внимание, что после вызова render создание строки началось сначала
-//
-//  var bodyDiv = ezjQuery2
-//  helloList.add('body') //<body></body>
-//  helloList.add('div') //<body><div></div></body>
-//  helloList.render();
-//  console.log(bodyDiv); //<body><div></div></body>
+function  notMetodFunc(teg, text){
+    this.tegsString1 = `${this.tegsString1}<${teg}>`;
+    this.tegsString2 = `</${teg}>${this.tegsString2}`;
+    console.log(text === undefined ? this.tegsString1 + this.tegsString2 : this.tegsString1 + text + this.tegsString2);
+}
+console.log('SUPER:');
+ var helloList = $1
+ helloList.add('body') // <body></body>
+ helloList.add('div') // <body><div></div></body>
+ helloList.add('ul') // <body><div><ul></ul></div></body>
+ helloList.add('li', 'Hello') //<body><div><ul><li>Hello</li></ul></div></body>
+ helloList.render();
+ console.log(helloList); // <body><div><ul><li>Hello</li></ul></div></body>
+// Обратите внимание, что после вызова render создание строки началось сначала
 
-$('body').add('li', 'hi').render() // <body><li>hi</li></body>
+ var bodyDiv = $1
+ helloList.add('body') //<body></body>
+ helloList.add('div') //<body><div></div></body>
+ helloList.render();
+ console.log(bodyDiv); //<body><div></div></body>
+
+// $('body').add('li', 'hi').render() // <body><li>hi</li></body>
 
