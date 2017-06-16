@@ -137,20 +137,20 @@ function  notMetodFunc(teg, text){
     return this
 }
 console.log('SUPER:');
- var helloList = $1
- helloList.add('body') // <body></body>
- helloList.add('div') // <body><div></div></body>
- helloList.add('ul') // <body><div><ul></ul></div></body>
- helloList.add('li', 'Hello') //<body><div><ul><li>Hello</li></ul></div></body>
- helloList.render();
- console.log(helloList); // <body><div><ul><li>Hello</li></ul></div></body>
+var helloList = $1
+helloList.add('body') // <body></body>
+    .add('div') // <body><div></div></body>
+    .add('ul') // <body><div><ul></ul></div></body>
+    .add('li', 'Hello') //<body><div><ul><li>Hello</li></ul></div></body>
+    .render();
+    console.log(helloList); // <body><div><ul><li>Hello</li></ul></div></body>
 // Обратите внимание, что после вызова render создание строки началось сначала
 
- var bodyDiv = $1
- helloList.add('body') //<body></body>
- helloList.add('div') //<body><div></div></body>
- helloList.render();
- console.log(bodyDiv); //<body><div></div></body>
+var bodyDiv = $1
+helloList.add('body') //<body></body>
+    .add('div') //<body><div></div></body>
+     .render();
+     console.log(bodyDiv); //<body><div></div></body>
 
 // $('body').add('li', 'hi').render() // <body><li>hi</li></body>
 
