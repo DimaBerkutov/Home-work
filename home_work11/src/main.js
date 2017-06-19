@@ -116,4 +116,113 @@
 // alert( "Произведение=" + calculator.mul() );
 
 //accumulator
+// function Accumulator(startingValue){
+//     this.value = startingValue;
+//     this.read = function(){
+//         let addValue = prompt(`Текущее значение : ${this.value}
+// Введите число:`, 1);
+//         this.value += +addValue;
+//     }
+// }
+// var accumulator = new Accumulator(1); // начальное значение 1
+// accumulator.read(); // прибавит ввод prompt к текущему значению
+// accumulator.read(); // прибавит ввод prompt к текущему значению
+// alert( 'Результат = ' + accumulator.value ); // выведет текущее значение
 
+//calc extendable
+// function Calculator() {
+//     let action = {
+//         '-': function (a, b) {
+//             return +a - +b;
+//         },
+//         '+': function (a, b) {
+//             return +a + +b;
+//         }
+//     };
+//     this.calculate = function (val) {
+//         let a = val.split(' ')[0],
+//             b = val.split(' ')[2],
+//             sign = val.split(' ')[1]
+//         if(!isNaN(a) || !isNaN(b)){
+//             return action[sign] (a, b)
+//         } else {
+//             return 'error'
+//         }
+//     };
+//     this.addMethod = function(name, func){
+//         action[name] = func;
+//     };
+// }
+// var calc = new Calculator;
+//
+// var powerCalc = new Calculator;
+// powerCalc.addMethod("*", function(a, b) {
+//   return a * b;
+// });
+// powerCalc.addMethod("/", function(a, b) {
+//   return a / b;
+// });
+// powerCalc.addMethod("**", function(a, b) {
+//   return Math.pow(a, b);
+// });
+//
+// var result = powerCalc.calculate("2 ** 3");
+// alert( result ); // 8
+//
+// alert( calc.calculate("3 + 7") ); // 10
+
+
+/* .. ваш код для filter, inBetween, inArray */
+var arr = [1, 2, 3, 4, 5, 6, 7];
+function filter(arr, func){
+    let someArr = [];
+    arr.map((elem, index) => {
+            console.log(func);
+        if(func(elem)){
+            someArr.push(elem);
+        }
+    })
+    console.log(someArr);
+    return someArr;
+}
+function inBetween(a, b) {
+    return arr.map((elem, index) =>  a <= elem <= b);
+}
+function inArray(incomeArr) {
+   return arr.map((arrElem, index) => incomeArr.map((incomeElem, index) => arrElem == incomeElem));
+}
+alert(filter(arr, function(a) {
+  return a % 2 == 0
+})); // 2,4,6
+alert( filter(arr, inBetween(3, 6)) ); // 3,4,5,6
+alert( filter(arr, inArray([1, 2, 10])) ); // 1,2
+
+
+// var arr = [1, 2, 3, 4, 5, 6, 7];
+// function filter(arr, func) {
+//   var result = [];
+//
+//   for (var i = 0; i < arr.length; i++) {
+//     var val = arr[i];
+//     if (func(val)) {
+//       result.push(val);
+//     }
+//   }
+//
+//   return result;
+// }
+//
+// function inBetween(a, b) {
+//     return function(x) {
+//       return x >= a && x <= b;
+//     };
+//   }
+//
+// alert( filter(arr, inBetween(3, 6)) ); // 3,4,5,6
+// function inArray(arr) {
+//     return function(x) {
+//       return arr.indexOf(x) != -1;
+//     };
+//   }
+//
+// alert( filter(arr, inArray([1, 2, 10])) ); // 1,2
