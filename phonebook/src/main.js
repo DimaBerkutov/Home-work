@@ -11,12 +11,6 @@ function Phonebook() {
     ]
 }
 
-//Преобразование телефонного номера из формата 0993378130 в (099) 33-78-130
-Phonebook.prototype.formatMethod = function (val) {
-    let newNumber = `(${val.slice(0, 3)}) ${val.slice(3, 5)}-${val.slice(5, 7)}-${val.slice(7, 11)}`;
-    console.log(newNumber);
-    return newNumber;
-};
 //Проверка, что телефонный номер содержит только числа
 Phonebook.prototype.numberMethod = function (val) {
     for (let i = 0; i < val.length; i++) {
@@ -26,6 +20,12 @@ Phonebook.prototype.numberMethod = function (val) {
         }
         this.formatMethod(val);
     }
+};
+//Преобразование телефонного номера из формата 0993378130 в (099) 33-78-130
+Phonebook.prototype.formatMethod = function (val) {
+    let newNumber = `(${val.slice(0, 3)}) ${val.slice(3, 5)}-${val.slice(5, 7)}-${val.slice(7, 11)}`;
+    console.log(newNumber);
+    return newNumber;
 };
 //Добавление пользователей в объект
 Phonebook.prototype.addUser = function (val1, val2, val3, val4) {
@@ -66,8 +66,6 @@ Phonebook.prototype.editUser = function (val1, val2, val3, val4) {
 };
 //Сортировка пользователей по номеру телефона, фамилии, имени и тд, по любому из свойств пользователя
 Phonebook.prototype.sortUser = function (val) {
-    // console.log('val', val);
-    // let aaa = val;
     this.dataBase.sort((a, b) => {
         if (a[val] > b[val]) {
             return 1
