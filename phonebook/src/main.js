@@ -7,7 +7,8 @@ function Phonebook() {
         {id: 1, name: 'Vasya', lastName: 'Ivanov', phone: '0974532641'},
         {id: 2, name: 'Petr', lastName: 'Jiharev', phone: '0993378130'},
         {id: 3, name: 'Stas', lastName: 'Berejnoy', phone: '0993378130'},
-        {id: 4, name: 'Vasya', lastName: 'Rudenko', phone: '0974525646'}
+        {id: 4, name: 'Vasya', lastName: 'Rudenko'}
+        // {id: 4, name: 'Vasya', lastName: 'Rudenko', phone: '0974525646'}
     ]
 }
 
@@ -79,9 +80,15 @@ Phonebook.prototype.sortUser = function (val) {
     console.log("7) db after sort User", this.dataBase)
 };
 //Фильтр по указанному свойству
-// Phonebook.prototype.filterUser = function(id, options) {
-//
-// };
+Phonebook.prototype.filterUser = function (val) {
+    let filterDb = [];
+    this.dataBase.forEach((elem, index) => {
+        if ( val in elem ){
+            filterDb.push(elem);
+        }
+    });
+    console.log("4) db after filter User", filterDb);
+};
 
 let phonebook = new Phonebook;
 phonebook.numberMethod("0993378130");
@@ -90,4 +97,4 @@ phonebook.deleteUser('Petr', 'Jiharev');
 phonebook.searchUser('Vasya');
 phonebook.editUser('Vasya', 'Ivanov', 'name', 'Nikita',);
 phonebook.sortUser('phone');
-// phonebook.filterUser('phone');
+phonebook.filterUser('phone');
