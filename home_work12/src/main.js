@@ -34,41 +34,42 @@
  * первая функция и возвращать объект и функцию
  *
  * */
-// function Http() {
-//     this.createServer = function (param, param1, param2, param3) {
-//         // this.listen.call(this, PORT, host);
-//         console.log('createServer', ctx);
-//         // console.log(param(ctx));
-//
-//         console.log('param(ctx)', param(ctx));
-//         console.log('param1', param1);
-//         console.log('param2', param2);
-//         // console.log(host);
-//         return this
-//     };
-//     this.listen = function (PORT, host) {
-//         // console.log('PORT', PORT);
-//         // console.log('host', host);
-//         this.createServer.call(this, PORT = 'PORT', host);
-//         return this
-//     };
-// }
-// let ctx = {
-//     req: {val1: 'val1', val2: 'val2'},
-//     PORT: '',
-//     url: '',
-//     res: {val11: 'val11', val12: 'val12'},
-//     status: 5352,
-//     message: 'hello',
-//     header: {
-//         content_type: 'application/json'
-//     }
-// };
-// let next = 'Function';
-// const server = new Http().createServer(function(ctx, next) {
-//     console.log('ctx', ctx);
-// }).listen(3000, 'localhost');
+let ctx = {
+    req: {val1: 'val1', val2: 'val2'},
+    PORT: '',
+    url: '',
+    res: {val11: 'val11', val12: 'val12'},
+    status: 5352,
+    message: 'hello',
+    header: {
+        content_type: 'application/json'
+    }
+};
+let next = function () {};
 
+function Http() {
+    this.createServer = function (param1, param2, param3) {
+        // this.listen.call(this, PORT, host);
+        // console.log('this', this);
+        // console.log('this', this.createServer);
+        // console.log('ctx1', ctx);
+        // console.log('param1', param1);
+        // console.log('param2', param2);
+        // console.log('param3', param3);
+        console.log(`Task 0: Server running on https://${param1}:${param2}`);
+        return this
+    };
+    this.listen = function (PORT, host) {
+        this.createServer.call(this, PORT, host);
+        this.port = PORT;
+        this.host = host;
+        return this
+    };
+}
+
+const server = new Http().createServer(function(ctx, next) {
+    console.log('ctx', ctx);
+}).listen(3000, 'localhost');
 // TASK 1
 // Создать класс Human, у которого будут свойства обычного человека:
 // имя, возраст, пол, рост, вес.
@@ -80,23 +81,29 @@
 // Убедиться что они имеют поля родительского класса Human
 
 function Human(val1, val2, val3, val4, val5) {
-    this.name = val1;
-    this.age = val2;
-    this.sex = val3;
-    this.height = val4;
-    this.weight = val5;
+    this.name = 'Anton';
+    this.age = 12;
+    this.sex = 'Male';
+    this.height = 173;
+    this.weight = 67;
 }
-Human.prototype.worker = function (val1, val2, val3) {
+
+Worker.prototype = Object.create(Human.prototype);
+Student.prototype = Object.create(Human.prototype);
+
+function Worker(val1, val2, val3) {
+    Human.call(this, val1, val2, val3);
     this.placeWork = val1;
     this.salary = val2;
     this.work = (val3) => val3;
-};
-Human.prototype.student = function (val1, val2, val3) {
+}
+function Student(val1, val2, val3) {
+    Human.call(this, val1, val2, val3);
     this.placeLearn = val1;
     this.scholarship = val2;
     this.watchTVshows = (val3) => val3;
-};
-let person = new Human('Anton', 12, 'Male', 173, 67);
-person.worker('gardener', 3213, 'working');
-person.student('institute', 346, 'studying');
-console.log(person);
+}
+let worker = new Worker('gardener', 3213, 'working');
+let student = new Student('institute', 346, 'studying');
+console.log('Task 1: worker: ', worker);
+console.log('Task 1: student: ', student);
