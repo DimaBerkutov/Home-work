@@ -1,6 +1,7 @@
 /**
  * Created by Dima on 20.06.2017.
  */
+`use strict`
 
 function Phonebook() {
     this.dataBase = [
