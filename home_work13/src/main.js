@@ -63,44 +63,44 @@ const someWebpackModule = `module.exports = {
  *
  * */
 
-// class Http {
-//     constructor(){}
-// }
-// class ChildHttp1 extends Http {
-//     constructor(){
-//         super();
-//     }
-//     createServer(fn){
-//         let ctx = {
-//             req: {val1: 'val1', val2: 'val2'},
-//             PORT: '',
-//             url: '',
-//             res: {val11: 'val11', val12: 'val12'},
-//             status: 5352,
-//             message: 'hello',
-//             header: {
-//                 content_type: 'application/json'
-//             }
-//         };
-//         let next = () => {};
-//         fn = () => {
-//             fn.call(this, ctx, () => {});
-//         };
-//         console.log(`TASK-2: Server running on https://${ctx} ${next}`);
-//     }
-// }
-// class ChildHttp2 extends Http {
-//     constructor(){
-//         super();
-//     }
-//     listen(param1, param2){
-//         console.log(`TASK-2: Server running on https://${param1}:${param2}`);
-//     }
-// }
-// const create = new ChildHttp1().createServer(function (ctx, next) {
-//     console.log('ctx', ctx);
-// });
-// const listenNew = new ChildHttp2().listen(3000, 'localhost');
+class Http {
+    constructor(){}
+}
+class ChildHttp1 extends Http {
+    constructor(){
+        super();
+    }
+    createServer(fn){
+        let ctx = {
+            req: {val1: 'val1', val2: 'val2'},
+            PORT: '',
+            url: '',
+            res: {val11: 'val11', val12: 'val12'},
+            status: 5352,
+            message: 'hello',
+            header: {
+                content_type: 'application/json'
+            }
+        };
+        let next = () => {};
+        fn = () => {
+            fn.call(this, ctx, () => {});
+        };
+        console.log(`TASK-2: Server running on https://${ctx} ${next}`);
+    }
+}
+class ChildHttp2 extends Http {
+    constructor(){
+        super();
+    }
+    listen(param1, param2){
+        console.log(`TASK-2: Server running on https://${param1}:${param2}`);
+    }
+}
+const create = new ChildHttp1().createServer(function (ctx, next) {
+    console.log('ctx', ctx);
+});
+const listenNew = new ChildHttp2().listen(3000, 'localhost');
 
 /*
  *
@@ -112,19 +112,19 @@ const someWebpackModule = `module.exports = {
  *
  * */
 
-// let startTimer = () => {
-//     let timer = 0;
-//     let serverResponse = i => {
-//         return setTimeout(function() {
-//             console.log('TASK-3:', i);
-//         }, (timer = timer / 2));
-//     };
-//     for (let i = 10; i >= 1; i--) {
-//         timer = timer * i;
-//         serverResponse(i);
-//     }
-// };
-// startTimer();
+let startTimer = () => {
+    let timer = 0;
+    let serverResponse = i => {
+        return setTimeout(function() {
+            console.log('TASK-3:', i);
+        }, (timer = timer / 2));
+    };
+    for (let i = 10; i >= 1; i--) {
+        timer = timer * i;
+        serverResponse(i);
+    }
+};
+startTimer();
 
 // @ SUPER
 
@@ -141,43 +141,48 @@ const someWebpackModule = `module.exports = {
  *
  * */
 
-class DataBase {
-    constructor() {}
-    query(){
-        let i = 5;
-        let timeout = setInterval(() => {
-            if(i > 0){
-                console.log(i--);
-            }else {
-                console.log('The web server is down');
-                clearInterval(timeout);
-            }
-            console.log('end timeout', timeout);
-        }, 1000)
-    }
-}
-
-const dataBase = new DataBase();
-dataBase.query();
-// 5
-// 4
-// 3
-// 2
-// 1
-// console.log('The web server is down') https://www.youtube.com/watch?v=W8_Kfjo3VjU
-
-dataBase.query();
-// 5
-// 4
-dataBase.query();
-// 5
-// 4
-// 3
-// 2
-dataBase.query();
-// 5
-// 4
-// 3
-// 2
-// 1
-// console.log('The web server is down')
+// class DataBase {
+//     constructor() {}
+//     query(){
+//         let i = 5;
+//         let timeout;
+//         if(timeout()){
+//             timeout = setInterval(() => {
+//                 if(i > 0){
+//                     console.log(i--);
+//                 }else {
+//                     console.log('The web server is down');
+//                     clearInterval(timeout);
+//                 }
+//                 console.log('end timeout', timeout);
+//             }, 1000)
+//         }else{
+//                 console.log('error');
+//         }
+//     }
+// }
+//
+// const dataBase = new DataBase();
+// dataBase.query();
+// // 5
+// // 4
+// // 3
+// // 2
+// // 1
+// // console.log('The web server is down') https://www.youtube.com/watch?v=W8_Kfjo3VjU
+//
+// dataBase.query();
+// // 5
+// // 4
+// dataBase.query();
+// // 5
+// // 4
+// // 3
+// // 2
+// dataBase.query();
+// // 5
+// // 4
+// // 3
+// // 2
+// // 1
+// // console.log('The web server is down')
