@@ -1,0 +1,108 @@
+*::selection{
+    color: #153128;
+    background: #fff;
+}
+section{
+    width: 400px;
+    margin: 0 auto;
+    background: #153128;
+    color: #fff;
+    border: 1px solid #153128;
+    box-shadow: 0 0 40px 15px #153128;
+    transition: width 0.3s;
+    -webkit-transition: width 0.3s;
+}
+section:first-child{
+    margin: 0 auto 40px;
+}
+h1{
+    text-align: center;
+}
+ol{
+    width: 190px;
+    margin: 0 auto;
+    padding: 0 0 0 20px;
+}
+ul{
+    padding: 0;
+    list-style: none;
+}
+ol li{
+    margin: 0 0 20px;
+}
+ul li{
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+}
+input[type="checkbox"] {
+    display:none;
+}
+label {
+    margin: 0 5px 0 0;
+}
+label input[type="checkbox"] + i {
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin: 0;
+    vertical-align:middle;
+    cursor:pointer;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+label input[type="checkbox"]:checked + i {
+    background:url(../img/icon_yes.png) no-repeat;
+    background-size: 19px;
+}
+button{
+    display: block;
+    width: 210px;
+    padding: 10px 10px;
+    margin: 0 auto 1em;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    cursor: pointer;
+    background: #071b06;
+    color: #fff;
+    box-shadow: none;
+    height: 35px;
+    position: relative;
+    overflow: hidden;
+}
+button:focus{
+    outline: none;
+}
+button:before{
+    content: '';
+    position: absolute;
+    left: -104px;
+    top: 0;
+    height: 35px;
+    width: 104px;
+    background: rgba(255, 255, 255, 0.28);
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+}
+button:after{
+    position: absolute;
+    right: -104px;
+    top: 0;
+    content: '';
+    height: 35px;
+    width: 104px;
+    background: rgba(255, 255, 255, 0.28);
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+}
+button:hover:before{
+    left: 0;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+}
+button:hover:after{
+    right: 0;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+}
