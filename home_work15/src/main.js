@@ -66,10 +66,94 @@ let openBraces = (arr, newArr) => {
 
 console.log('TASK-1: ', start([[1,2],[3,[4]],5, 10]));
 console.log('TASK-1: ', start([25,10,[10,[15]]]));
-console.log('TASK-1: ', start([1, [2, [ {a: "b", d: "w"}] ] ]));
+console.log('TASK-1: ', start([1, [2, [ {a: "b", c: "d"}] ] ]));
 /*
 Виртуализировать таблицу, сделать рендер всей таблицы через JavaScript.
 Второй макет.
 https://github.com/aleksandra-maslennikova/telephone-book/blob/master/index.html
 Выглядеть должно так же: https://aleksandra-maslennikova.github.io/telephone-book/index.html
 */
+
+let phoneApp =  {
+    pages: ['Contacts'],
+    contactsColumn: ['Name', 'Last name', 'Email'],
+    contactsBase: [
+        {
+            name: 'Иван',
+            lastName: 'Петров',
+            mail: 'IvanPetrov@ec.ua'
+        },
+        {
+            name: 'Сергей',
+            lastName: 'Иванов',
+            mail: 'SergeiSergeev@ec.ua'
+        },
+        {
+            name: 'Александр',
+            lastName: 'Александров',
+            mail: 'IvanIvanov@ec.ua'
+        },
+        {
+            name: 'Алекс',
+            lastName: 'Смирнов',
+            mail: 'AlexAlex@ec.ua'
+        },
+        {
+            name: 'Сергей',
+            lastName: 'Волков',
+            mail: 'VolkovSergey@ec.ua'
+        },
+        {
+            name: 'Елена',
+            lastName: 'Лещенко',
+            mail: 'ElenaLeshenko@ec.ua'
+        },
+        {
+            name: 'Алекс',
+            lastName: 'Сергеев',
+            mail: 'ShemyakinaN@ec.ua'
+        },
+        {
+            name: 'Кира',
+            lastName: 'Воробьева',
+            mail: 'Kira1990@ec.ua'
+        }
+    ],
+    new(tag) {
+        return document.createElement(tag);
+    },
+    renderTable(){
+        const tableWrapper = document.body.children[1].children[0].children[1];
+        const table = this.new('table');
+        table.classList.add('table', 'table-hover', 'contacts');
+        tableWrapper.appendChild(table);
+        this.tableHeader(table);
+        this.tableBody(table);
+    },
+    tableHeader(table){
+        const thead = this.new('thead');
+        const trHead = this.new('tr');
+        table.appendChild(thead);
+        thead.appendChild(trHead);
+        this.contactsColumn.forEach(elem => {
+            const th = this.new('th');
+            trHead.appendChild(th);
+            th.textContent = elem;
+        });
+    },
+    tableBody(table){
+        const tbody = this.new('tbody');
+        table.appendChild(tbody);
+        this.contactsBase.forEach(elem => {
+        const tr = this.new('tr');
+            tbody.appendChild(tr);
+            Object.values(elem).forEach(elemText => {
+            const td = this.new('td');
+            tr.appendChild(td);
+                td.textContent = elemText;
+            });
+            console.log(Object.values(elem));
+        });
+    }
+};
+phoneApp.renderTable();
