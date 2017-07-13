@@ -1,0 +1,10 @@
+body{
+	position: relative;
+	width: 100%;
+}
+.new_class{
+	position: absolute;
+	left: auto;
+	right: auto;
+	margin: auto;
+}
