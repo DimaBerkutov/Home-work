@@ -1,0 +1,59 @@
+body {
+    background: #ddd;
+}
+ul{
+    height: 300px;
+    width: 748px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0;
+    list-style: none;
+}
+#firstTask li{
+    position: absolute;
+    float: left;
+    left: 0;
+    top: 0;
+}
+#prev{
+    position: absolute;
+    left: 500px;
+    top: 170px;
+    cursor: pointer;
+}
+#next {
+    position: absolute;
+    right: 500px;
+    top: 170px;
+    cursor: pointer;
+}
+#prev1{
+    position: absolute;
+    left: 500px;
+    top: 560px;
+    cursor: pointer;
+}
+#next1 {
+    position: absolute;
+    right: 500px;
+    top: 560px;
+    cursor: pointer;
+}
+.not_active{
+    opacity: 0;
+}
+#firstTaskSuper {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+#firstTaskSuper li{
+    display: flex;
+}
+.newSlide{
+    transform: translate3d(-748px, 0, 0);
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition:0.5s;
+}
