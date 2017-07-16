@@ -130,21 +130,14 @@ prev1.onclick = () => {
 class Task2Class{
     constructor(){}
     topStyle(text, stylesObj){
-        console.log(document.body.querySelector('header'));
         document.body.querySelector('header').insertAdjacentHTML('afterbegin', '<button id="newButton"></button>');
         let newBlock = document.getElementById('newButton');
-        let keys =  Object.keys(stylesObj);
         let values =  Object.values(stylesObj);
         Object.keys(stylesObj).forEach((elem, index) => {
-            newBlock.style.elem = 'values[index]';
             newBlock.style[elem] = values[index];
-            // newBlock.style.backgroundColor = 'blue';
-            console.log(elem);
-            console.log(values[index]);
         });
     }
 }
-
 const newTask = new Task2Class().topStyle('fetch', {backgroundColor:'blue', width: '100px', height: '50px'});
 
 /* @SUPER
@@ -162,4 +155,10 @@ const newTask = new Task2Class().topStyle('fetch', {backgroundColor:'blue', widt
  *
  * */
 
+const regExpFunc = (val) => {
+    console.log(val.replace('-', ''))
+};
 
+regExpFunc('background-color');
+regExpFunc('margin-left');
+regExpFunc('flex-basis-color');
