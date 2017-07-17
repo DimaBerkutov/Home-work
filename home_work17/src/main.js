@@ -156,7 +156,11 @@ const newTask = new Task2Class().topStyle('fetch', {backgroundColor:'blue', widt
  * */
 
 const regExpFunc = (val) => {
-    console.log(val.replace('-', ''))
+    // val = '[^\s]{1}';
+    // console.log('val', val);
+    // console.log(val.replace('-', '[^\s]{1}'));
+    console.log(val.replace(/-/g, '' + '$&'.toUpperCase()));
+    // console.log(val.replace(/'-'/g, ' '));
 };
 
 regExpFunc('background-color');
