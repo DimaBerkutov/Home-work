@@ -159,7 +159,8 @@ const regExpFunc = (val) => {
     // val = '[^\s]{1}';
     // console.log('val', val);
     // console.log(val.replace('-', '[^\s]{1}'));
-    console.log(val.replace(/-/g, '' + '$&'.toUpperCase()));
+    // console.log(val.replace(/-/g, '' + '/s'.toUpperCase()));
+    console.log(/\s\w*/.test(val));
     // console.log(val.replace(/'-'/g, ' '));
 };
 
