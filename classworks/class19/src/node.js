@@ -11,6 +11,7 @@ http.createServer((request, response) => {
 	}
 	const indexHtml = fs.readFileSync('../index.html');
 	response.end(indexHtml);
+	console.log('-------------------');
 }).listen(3000, 'localhost', err => {
 	if(err)console.log('error');
 	console.log('server is running at http://localhost:3000');

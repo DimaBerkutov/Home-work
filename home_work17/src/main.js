@@ -155,15 +155,10 @@ const newTask = new Task2Class().topStyle('fetch', {backgroundColor:'blue', widt
  *
  * */
 
-const regExpFunc = (val) => {
-    // val = '[^\s]{1}';
-    // console.log('val', val);
-    // console.log(val.replace('-', '[^\s]{1}'));
-    // console.log(val.replace(/-/g, '' + '/s'.toUpperCase()));
-    console.log(/\s\w*/.test(val));
-    // console.log(val.replace(/'-'/g, ' '));
-};
-
-regExpFunc('background-color');
-regExpFunc('margin-left');
-regExpFunc('flex-basis-color');
+const regExpFunc = (string, a1, a2, a3) => [a1, a2.toUpperCase(), a3].join('');
+let newRegExpFunc1 = 'background-color'.replace(/(\w*)-(\w)(\w*)/g, regExpFunc);
+let newRegExpFunc2 = 'margin-left'.replace(/(\w*)-(\w)(\w*)/g, regExpFunc);
+let newRegExpFunc3 = 'flex-basis-color'.replace(/(\w*)-(\w)(\w*)/g, regExpFunc);
+console.log('@SUPER', newRegExpFunc1);
+console.log('@SUPER', newRegExpFunc2);
+console.log('@SUPER', newRegExpFunc3);
