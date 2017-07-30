@@ -59,19 +59,29 @@ const newUser = {
     email: 'faffaf@ukr.net'
 };
 button2.addEventListener('click', () => {
-  let xhrPOST = new XMLHttpRequest();
+  // let xhrPOST = new XMLHttpRequest();
 
-  xhrPOST.addEventListener('readystatechange', () => {
-    if (xhrPOST.readyState === 4) {
-      console.log('response: ', JSON.parse(xhrPOST.response));
-      console.log('responseText: ', xhrPOST.responseText);
-    }
-  });
+  // xhrPOST.addEventListener('readystatechange', () => {
+  //   if (xhrPOST.readyState === 4) {
+  //     console.log('response: ', JSON.parse(xhrPOST.response));
+  //     console.log('responseText: ', xhrPOST.responseText);
+  //   }
+  // });
 
-  xhrPOST.open('POST', url + 'DimaBerkutov/users', true);
-  xhrPOST.setRequestHeader('Content-Type', 'application/json');
+  // xhrPOST.open('POST', url + 'DimaBerkutov/users', true);
+  // xhrPOST.setRequestHeader('Content-Type', 'application/json');
 
-  xhrPOST.send(JSON.stringify(newUser));
+  // xhrPOST.send(JSON.stringify(newUser));
+  
+        fetch(`${url}DimaBerkutov/users`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newUser)
+        }).catch(e => {
+            console.log(e);
+        });
 });
 
 myForm.addEventListener('submit', e => {
